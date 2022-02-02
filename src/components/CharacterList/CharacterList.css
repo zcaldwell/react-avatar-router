@@ -1,2 +1,28 @@
 li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+a:link {
+  text-decoration: none;
+  color: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: none;
 }
