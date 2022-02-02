@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCharacters } from '../../services/characters';
+import { getCharacterById } from '../../services/characters';
 
-export default function MangaDetail() {
-  const [selected, setSelected] = useState([]);
+export default function CharacterDetail() {
+  const [selected, setSelected] = useState({});
   const [loading, setLoading] = useState(true);
 
   const { characterId } = useParams();
+  console.log(characterId);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getMangaById(characterId);
+      const data = await getCharacterById(characterId);
       setSelected(data);
       setLoading(false);
     };
@@ -19,15 +20,17 @@ export default function MangaDetail() {
     }
   }, [loading]);
 
+  console.log(selected);
+  const { photoUrl, name, affiliation, position } = selected;
+
   if (loading) return <h1>Loading...</h1>;
 
   return (
     <div>
-      <h1>{title.en}</h1>
-      <p>{description.en}</p>
-      <img
-        src={`https://upload.mangadex.org/covers/${mangaId}/${relationship}`}
-      />
+      <h1>{name}</h1>
+      <h3>{affiliation}</h3>
+      <h4>{position}</h4>
+      <img src={photoUrl} />
     </div>
   );
 }
