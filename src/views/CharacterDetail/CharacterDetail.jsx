@@ -7,7 +7,6 @@ export default function CharacterDetail() {
   const [loading, setLoading] = useState(true);
 
   const { characterId } = useParams();
-  console.log(characterId);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +19,6 @@ export default function CharacterDetail() {
     }
   }, [loading]);
 
-  console.log(selected);
   const { photoUrl, name, affiliation, position } = selected;
 
   if (loading) return <h1>Loading...</h1>;
