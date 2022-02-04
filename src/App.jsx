@@ -2,6 +2,7 @@ import Home from './views/Home/Home';
 import CharacterDetail from './views/CharacterDetail/CharacterDetail';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
+import './App.css';
 
 export default function App() {
   return (
