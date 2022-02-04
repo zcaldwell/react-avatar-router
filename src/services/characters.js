@@ -15,3 +15,11 @@ export async function getCharacterById(characterId) {
   const data = await resp.json();
   return data;
 }
+
+export async function getAffiliation(affiliation) {
+  const resp = await fetch(
+    `/api/v1/https://last-airbender-api.herokuapp.comaracters?affiliation=${affiliation}`
+  );
+  const data = await resp.json();
+  return data;
+}

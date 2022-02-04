@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import CharacterList from '../../components/CharacterList/CharacterList';
-import { getCharacters } from '../../services/characters';
+import { getAffiliation, getCharacters } from '../../services/characters';
 import './Home.css';
 
 export default function Home() {
@@ -20,9 +20,20 @@ export default function Home() {
     }
   }, [loading]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getAffiliation();
+      setAffiliation(data);
+      setLoading(false);
+    };
+    if (loading) {
+      fetchData();
+    }
+  }, [loading]);
+
   return (
     <div>
-      <CharacterList characters={characters} />
+      <CharacterList characters={characters} affiliation={affiliation} />
     </div>
   );
 }
