@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Nav() {
   return (
     <div>
-      <Link to="/chracter/fire">Fire</Link>
-      <Link to="/character/air">Air</Link>
-      <Link to="/character/water">Water</Link>
-      <Link to="/character/earth">Earth</Link>
+      <NavLink to="/all">All</NavLink>
+      <NavLink to="/fire">Fire</NavLink>
+      <NavLink to="/air">Air</NavLink>
+      <NavLink to="/water">Water</NavLink>
+      <NavLink to="/earth">Earth</NavLink>
     </div>
   );
 }

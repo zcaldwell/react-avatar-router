@@ -7,6 +7,7 @@ export default function CharacterDetail() {
   const [loading, setLoading] = useState(true);
 
   const { characterId } = useParams();
+  console.log(characterId);
 
   useEffect(() => {
     const fetchData = async () => {

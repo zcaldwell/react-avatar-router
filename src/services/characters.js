@@ -3,7 +3,6 @@ export async function getCharacters() {
     `https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=100`
   );
   const data = await resp.json();
-  console.log(data);
 
   return data;
 }
@@ -16,10 +15,11 @@ export async function getCharacterById(characterId) {
   return data;
 }
 
-export async function getAffiliation(affiliation) {
+export async function getAffiliation(nation) {
   const resp = await fetch(
-    `/api/v1/https://last-airbender-api.herokuapp.comaracters?affiliation=${affiliation}`
+    `https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=${nation}`
   );
+  console.log(data);
   const data = await resp.json();
   return data;
 }
