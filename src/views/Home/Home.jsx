@@ -10,7 +10,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   const { nation } = useParams();
-  console.log(nation);
 
   useEffect(() => {
     const fetchData = async () => {
