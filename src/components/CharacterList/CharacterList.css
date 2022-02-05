@@ -1,0 +1,34 @@
+.listItems {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+}
+
+.characterList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links:link {
+  text-decoration: none;
+  color: none;
+}
+
+.links:visited {
+  text-decoration: none;
+  color: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,28 +1,37 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import CharacterList from '../../components/CharacterList/CharacterList';
-import { getCharacters } from '../../services/characters';
+import { getCharacters, getAffiliation } from '../../services/characters';
+import './Home.css';
+import { useParams } from 'react-router-dom';
 
 export default function Home() {
-  const [characters, setCharacters] = useState([]);
-
+  const [allCharacters, setAllCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const { nation } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getCharacters();
-      setCharacters(data);
-      console.log(data);
-      setLoading(false);
+      if (nation === 'all') {
+        const data = await getCharacters();
+        setAllCharacters(data);
+        setLoading(false);
+      } else if (nation !== 'all') {
+        setLoading(true);
+        const data = await getAffiliation(nation);
+        setAllCharacters(data);
+        setLoading(false);
+      }
     };
-    if (loading) {
-      fetchData();
-    }
-  }, [loading]);
 
+    fetchData();
+  }, [nation]);
+
+  if (loading) return <h1>Loading...</h1>;
   return (
     <div>
-      <CharacterList characters={characters} />
+      <CharacterList characters={allCharacters} />
     </div>
   );
 }
